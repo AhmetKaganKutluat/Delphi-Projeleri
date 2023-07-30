@@ -1,0 +1,24 @@
+//yedeði aktarma
+restore database fakulte from disk='D:\yedek.bak'
+
+use fakulte
+go
+select * from tablo01
+select * from tablo02
+
+//ortalamasý 52 den büyük olan
+select * from tablo02 where ortalama>52
+
+//hangi öðrencinin hangi dersten geçip kaldýðýný gösteriniz
+select tablo01.adi,tablo01.soyadi,tablo02.ders,tablo02.sonuc 
+from tablo01 inner join tablo02 on tablo01.ogrno=tablo02.ogrno
+
+//mustafa alkan isimli öðrenci sýnav notunun deðiþtirilmesi isteðinde bulunmuþ,
+yapýlan incelemede notun 65 olduðu saptanmýþtýr gerekli düzeltmeyi yapýnýz
+update tablo02 set ortalama='65' where ogrno=300
+
+//ortalamasý 50 ile 70 arasýnda olan kiþilerin ad ve soyadlarýna
+ göre gösterirken azalan sýralama yapýnýnýz(memleketlerine göre)
+select tablo01.adi,tablo01.soyadi,tablo01.memleket,tablo02.ortalama
+from tablo01 inner join tablo02 on tablo01.ogrno=tablo02.ogrno 
+where tablo02.ortalama between 50 and 70 order by memleket desc

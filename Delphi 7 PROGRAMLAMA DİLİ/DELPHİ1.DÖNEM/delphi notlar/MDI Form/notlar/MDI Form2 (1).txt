@@ -1,0 +1,121 @@
+MDI FORM YAPIMI
+
+FÝLE NEW FORM 2 TANE DAHA AÇ 
+
+BUNLARI KAYDET
+
+FORM1 ÝÇÝN WindowState açýcaksýn
+
+FORMSTLYE I MDIFORMu seçtik
+
+FORM2 ÝÇÝN FORMSYLE I MDICHÝLD YAPTIK
+
+
+FORM3 ÝÇÝN FORMSYLE I MDICHÝLD YAPTIK
+
+----------------------------
+
+PROJE OPTÝONSU AÇ 
+
+ANA FORM FORM1
+
+FORM2 ÝLE FORM3 ü karþý tarafa atýyorsun 
+
+Form1 tek baþýna kalýyor.
+
+----------------------
+
+
+Form2 ve Form3 ü borderstyle kýsmýndan toolwindow yaptýk
+
+
+---------------------------
+
+Stardart Panelinden 
+
+Mainmenü kýsmýnda týklýyorsun 
+
+sonrasýnda mainmenüyü tekrardan basýp alt alt dosyalarý yazýyorsun
+
+aralarýna çizgi çekmek için 1 tane - yazýp entera basman yeterli
+
+menü içindekine alt menü oluþturmak için seç sað týkla Create Submenü
+
+
+-----------------------
+Ýcon eklemek için
+
+win32 paletine geliceksin
+
+imagelist ekliceksin
+
+32x32 yapmak için týkladýðýmýzda Height ve Widthi 32 32 ayarla
+
+sonra imageliste çift týklayýp add e basýp d den iconlarý seç ok e bas
+
+MainMenü ye týklayýp Ýmages kýsmýndan ImageList1 i seç
+
+Mainliste týklayýp ÝmageIndex den dosyalarýný seç
+
+
+---------------------
+
+
+Kýsayol eklemek için istediðini seç ShortCut dan seç 
+
+------------------
+
+
+Yeni den yeni2yi açmak için MDI Formunda 
+
+menüden Yeni ye basýp Gelen kod ekranýnda 
+
+procedure TForm1.Yeni1Click(Sender: TObject);
+begin
+TForm2.Create(Self); yazýcaksýn
+end;
+
+end.
+
+
+
+//burasý týrnaktan üstte
+gelmesine dikkat et
+
+"implementation
+
+{$R *.dfm}" bunun altýna hemen altdaki kodu yaz
+    uses unit2,unit3;
+
+
+-------------
+
+Dosya - Yeni kýsmýndan form2yi çalýþtýrdýkdan sonra tekrar açýlmamasý için (kapatýlana kadar) 
+
+
+TForm2.Create(Self); bunun altýnda 
+Yeni1.Enabled :=false; bunu yazman gerekiyor (ama þuan sadece açýlýnca tekrar açýlmýyor ekstra kod lazým)
+
+
+Tekra açýlmasý için form2 kýsmýnan Events e gelip OnClose kýsmýna 2 defa týkla
+
+açýlan pencereden 
+
+Form1.Yeni1.Enabled :=True; kodu yaz ki tekrar açýlsýn
+
+burada alt kýsma pencere modunda alýyor tekrar bir kod eklememiz gerekiyor
+
+
+Action :=caFree;
+
+genel olarak kod þu þekildeo lur 
+
+Action :=caFree;
+Form1.Yeni1.Enabled :=True;
+end;
+
+þeklinde olur 
+-----------------
+
+
+

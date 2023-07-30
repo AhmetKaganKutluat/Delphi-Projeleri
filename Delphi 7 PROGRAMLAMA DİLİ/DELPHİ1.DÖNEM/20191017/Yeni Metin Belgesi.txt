@@ -1,0 +1,54 @@
+restore database migros from disk='D:/migrosyedek.bak'
+
+use migros
+go
+
+select * from personel
+select * from satis
+
+select * from personel left join satis on personel.id=satis.id
+select * from personel
+select * from satis
+
+select * from personel right join satis on personel.id=satis.id
+select * from personel
+select * from satis
+
+select adi_soyadi,urun from personel left join satis on personel.id=satis.id
+select * from personel
+select * from satis
+
+select adi_soyadi,urun from personel right join satis on personel.id=satis.id
+select * from personel
+select * from satis
+
+//union birleþtirmek
+select id from personel union select id from satis
+select * from personel
+select * from satis
+
+//union all hepsini alýr
+select id from personel union all select id from satis
+select * from personel
+select * from satis
+
+select id from personel union select fiyat from satis
+select * from personel
+select * from satis
+
+select id from personel union all select fiyat from satis
+select * from personel
+select * from satis
+
+//like komutu kullanarak adýnýn içinde z harfi olmayanlarý göster
+select * from personel where adi_soyadi not like '%z%'
+select * from personel
+
+//maaþýnýn içinde 3000 tl geliri olaný göster
+select * from satis where fiyat in (3000)
+select * from satis
+
+//satýþý 1500 ila 3500 arasýnda olan kiþileri göster
+select adi_soyadi,fiyat from personel left join satis on personel.id=satis.id where fiyat between 1500 and 3500
+select * from personel
+select * from satis

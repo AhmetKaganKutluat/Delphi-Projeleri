@@ -1,0 +1,89 @@
+DATACONTORLDEN DBGRÝD EKLE
+
+DATA ACCESS DEN DATASOURCE EKLE
+
+ADD adotable ekle
+
+
+
+COnnetcitonString yapýp oradan .\bilgiler1.mdb dosyayý seçerken bunu ekle
+tableName kýsmýndan hangi tabloyu seçiceksen onu ekle
+
+tablodan datasetden addtable1 i seç
+
+gridden datasourceü seç
+
+addatablodan aktif ediceksiniz
+
+adoya sað týkla 
+
+
+
+Fields editör sonra açýlan pencereden tekrar sað tuþa basýp all fields bas
+
+glide tekrar sað tuþ yine sað tuþa basýp add all fields i seç 
+
+kimliði gizlemek istiyoruz kimliði delete ise siliyoruz
+
+alignment i tacenter yap
+
+
+Kaydet tuþuna bunlarý yazýyoruz :
+
+ADOTable1.Append;
+ADOTable1.FieldValues['Adý']:=Edit1.Text;
+ADOTable1.FieldValues['Soyadý']:=Edit2.Text;
+ADOTable1['MEMLEKET']:=ComboBox1.Text;  // istersen bunu da yapabilirsin bunu hoca kendisi gösterdi
+ADOTable1.Post;
+edit1.Clear; Edit2.Clear;
+ComboBox1.ItemIndex :=-1;
+edit1.SetFocus;
+
+
+
+Ýçine müdahaleyi de kapatmak için glidden Options > dgEditing i false yapýyoruz
+
+Farklý bir amaçlý içinde dgRowSelecti True yapýyoruz
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SORU : Bu örnek üzerinde kayýt iþlemi direkt deðil sorgulu kayýt yapsýn 
+
+Kayýt yapmak istiyor musunuz ? Evet / Hayýr 
+
+Evet ise ekraný silsin  ve kaydetsin
+
+Hayýr ise silsin
+
+
+2-SELAM KACMAZ ÝSÝMLÝ KÝÞÝYÝ KAYIT YAPMAK ÝSTÝYOR MUSUNUZ (MESAJ KUTUSUNDA DEÐÝÞÝKLÝK YAP YA APPLÝCATÝON YADA MESSEGE ÜZERÝNDEN YAPICAKSIN)
+
+
+NOT: ÖRNEK UYGULAMAYA GÖRE EVLÝ VE BEKAR CHECK KUTULARINI EKLEYÝNÝZ,SÝSTEME(VERÝTABANINA) HANGÝSÝ SEÇÝLÝYSE ONU DA EKLESÝN.
+
+SORU 3:
+
+ADI,SOYADI,EDÝT KUTUSU,BÖLÜM,HOCA,DERS,COMBO BOX (BÖLÜME GÖRE HOCA ,HOCAYA GÖRE DERS GELÝR),VÝZE,FÝNAL,KISA SINAV, Editden alýnarak (vize %30 , kýsa sýnav %20 , final %50.)
+
+60 ve üstünde öðrenci geçer 
+
+Harf Notu için : 0-40 FF,41-59 DD,60-74 CC,75-84 BC,85-94 BA,95-100 AA 
+
+

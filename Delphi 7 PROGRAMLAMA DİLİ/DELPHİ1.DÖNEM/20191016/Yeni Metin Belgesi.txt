@@ -1,0 +1,51 @@
+create database migros
+
+use migros
+go
+
+create table personel(
+id int,
+adi nchar(50),
+soyadi nchar(50),
+primary key(id)
+)
+
+create table satis(
+id int,
+urun nchar(50),
+fiyat int,
+primary key(id)
+)
+
+insert into personel(id,adi_soyadi)
+values(1,'selam kaçmaz')
+insert into satis(id,urun,fiyat)
+values(1,'ceket',250)
+select * from personel
+select * from satis
+
+insert into personel(id,adi_soyadi)
+values(2,'aslý bircan')
+insert into satis(id,urun,fiyat)
+values(3,'pantolon',140)
+select * from personel
+select * from satis
+
+insert into personel(id,adi_soyadi)
+values(3,'sanem alkan')
+insert into satis(id,urun,fiyat)
+values(6,'ütü',380)
+select * from personel
+select * from satis
+
+insert into personel(id,adi_soyadi)
+values(4,'ismet yýlmaz')
+insert into satis(id,urun,fiyat)
+values(10,'kalemlik',380)
+select * from personel
+select * from satis
+
+insert into satis(id,urun,fiyat)
+values(2,'televizyon',3500)
+select * from personel
+select * from satis

@@ -1,0 +1,98 @@
+create database bim
+
+use bim
+go
+
+create table personel
+(
+id int primary key,
+adisoyadi nchar(50),
+birim nchar(80)
+)
+
+insert into personel(id,adisoyadi,birim)
+values(1,'adem ünlü','maðaza yöneticisi')
+select * from personel
+
+insert into personel(id,adisoyadi,birim)
+values(2,'selam kaçmaz','müdür yardýmcýsý')
+select * from personel
+
+insert into personel(id,adisoyadi,birim)
+values(3,'büþra kabukçu','personel')
+select * from personel
+
+insert into personel(id,adisoyadi,birim)
+values(4,'emel fillali','personel')
+select * from personel
+
+insert into personel(id,adisoyadi,birim)
+values(5,'turan dane','personel')
+select * from personel
+
+create table satis
+(
+kimlik int primary key,
+urun nchar(50),
+bfiyat int,
+adet int,
+odeme nchar(40)
+)
+select * from personel
+select * from satis
+
+insert into satis(kimlik,urun,bfiyat,adet,odeme)
+values(1,'lcd televizyon',850,1,'kredi karti')
+select * from personel
+select * from satis
+
+insert into satis(kimlik,urun,bfiyat,adet,odeme)
+values(1,'lcd televizyon',850,1,'kredi karti')
+select * from personel
+select * from satis
+
+insert into satis(kimlik,urun,bfiyat,adet,odeme)
+values(2,'banyo dolabý',200,4,'nakit')
+select * from personel
+select * from satis
+
+insert into satis(kimlik,urun,bfiyat,adet,odeme)
+values(3,'tost makinesi',300,null,'nakit')
+select * from personel
+select * from satis
+
+insert into satis(kimlik,urun,bfiyat,adet,odeme)
+values(4,null,50,12,'senet')
+select * from personel
+select * from satis
+
+insert into satis(kimlik,urun,bfiyat,adet,odeme)
+values(5,'makarna',2,120,'nakit')
+select * from personel
+select * from satis
+
+//as komutu ile baþlýklýz veriye isim atadýk
+select urun,(bfiyat*adet) as satis_fiyat,odeme
+from satis
+select * from personel
+select * from satis
+
+//group by ayný olanlarý grup halinde gösterir distinc komutu ile aynýdýr
+select urun
+from satis group by urun
+select * from personel
+select * from satis
+
+select odeme
+from satis group by odeme
+select * from personel
+select * from satis
+
+select urun,(bfiyat*adet*0.3) as kazanc from satis
+select * from personel
+select * from satis
+
+//integer türündeki bir bir veriyi real türüne çevirdik
+alter table satis alter column bfiyat real
+
+alter table satis alter column adet real

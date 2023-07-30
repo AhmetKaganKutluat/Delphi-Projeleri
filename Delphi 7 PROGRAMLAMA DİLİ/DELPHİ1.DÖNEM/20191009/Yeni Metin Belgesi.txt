@@ -1,0 +1,74 @@
+create database fakulte
+
+use fakulte
+go
+create table tablo01
+(ogrno int,
+adi char(20),
+soyadi nchar(25),
+memleket nchar(20),
+primary key(ogrno)
+)
+
+use fakulte
+go
+create table tablo02
+(
+ogrno int,
+ders char(20),
+ortalama int,
+sonuc nchar(20),
+primary key(ogrno)
+)
+
+insert into tablo01(ogrno,adi,soyadi,memleket)
+values(200,'adem','ünlü','yozgat')
+select * from tablo01
+insert into tablo02(ogrno,ders,ortalama,sonuc)
+values(100,'matematik','78','geçti')
+select * from tablo02
+
+select tablo01.adi,tablo01.soyadi,tablo02.sonuc from
+tablo01 inner join tablo02 on tablo01.ogrno=tablo02.ogrno
+
+//tablo yedek alma
+select adi,soyadi into tablo01yedek from tablo01
+
+select ders,sonuc into tablo02yedek from tablo02
+
+use fakulte
+go
+drop table tablo01yedek
+
+use fakulte
+go
+drop table tablo02yedek
+
+//avg ortalama alma
+select avg(ortalama) as ortalama_sonuc from tablo02
+select * from tablo02
+
+//sum toplama
+select sum(ortalama) as toplama_sonuc from tablo02
+select * from tablo02
+
+//max en yüksek
+select max(ortalama) as max_sonuc from tablo02
+select * from tablo02
+
+//min en düþük
+select min(ortalama) as min_sonuc from tablo02
+select * from tablo02
+
+//count eleman sayýsý
+select count(ortalama) as elemansayisi_sonuc from tablo02
+select * from tablo02
+
+//en düþük ortalamaya sahip olan dersi gösteriniz.
+use fakulte
+go
+select ders,ortalama from tablo02 where ortalama=(select min(ortalama) from tablo02)
+
+//yedek alma
+backup database fakulte to disk='D:\yedek'
+--backup komutu ile yedeklenmiþ olan bir veri tabanýný nasýl ve hangi komutla tekrar sql serverin içerisine gömebiliriz

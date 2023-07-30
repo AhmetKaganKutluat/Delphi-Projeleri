@@ -1,0 +1,4 @@
+silmek için adý soyadý bilgisinin girilmesi gerekir. aksi halde hata mesajý verir
+silmek için veri tabanýnda adý ve soyadý eþleþiyorsa yani böyle bir kayýt varsa soru soracak "bulunan kayýt silinsin mi?"
+seçim evet ise kayýt silinir.
+eðer böyle bir kayýt yok ise silinecek kayýt yoktur.
